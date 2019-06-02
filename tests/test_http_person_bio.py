@@ -66,11 +66,6 @@ def test_person_death_notes_if_none_should_be_excluded(ia):
     assert 'death notes' not in person
 
 
-def test_person_birth_name_should_be_canonicalized(ia):
-    data = ia.get_person('0000210', info=['biography'])     # Julia Roberts
-    assert data.get('birth name') == 'Roberts, Julia Fiona'
-
-
 def test_person_nicknames_if_single_should_be_a_list_of_names(ia):
     person = ia.get_person('0000210', info=['biography'])   # Julia Roberts
     assert person.get('nick names') == ['Jules']
